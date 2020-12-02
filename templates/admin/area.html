@@ -1,0 +1,205 @@
+{% extends 'admin/base.html' %}
+
+
+{% block content %}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <h4 class="mt-0 header-title">Child rows example</h4>
+                <p class="text-muted mb-3">The DataTables API has a number of methods for attaching 
+                    child rows to a parent row in the DataTable. This can be used to show additional 
+                    information about a row, useful for cases where you wish to convey more information 
+                    about a row than there is space for in the host table.
+                </p>
+
+                <table id="child_rows" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Başlıq</th>
+                            <th>Mətn</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    {% for row in allarea %}
+                <tbody>
+                    <tr>
+                        <th>{{row.id}}</th>
+                        <th>{{row.title}}</th>
+                        <th>{{row.text}}</th>
+                        <th>
+                            <a href="/area/update/{{row.id}}" class="btn btn-warning btn-xs" type="button" data-toggle="modal" data-target="#modaledit{{row.id}}">Edit</a>
+                            <a href="/area/delete/{{row.id}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Delete</a>
+                        </th>
+                    </tr>
+                </tbody>
+
+                <div id="modaledit{{row.id}}" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                  
+                  
+                       <div class="modal-content">
+                  
+                  
+                          <div class="modal-header">
+                  
+                  
+                             <h4 class="modal-title">Update Information</h4>
+                  
+                  
+                          </div>
+                  
+                  
+                          <div class="modal-body">
+                  
+                  
+                             <form action="{{url_for('updatearea')}}" method="POST" >
+                  
+                  
+                                <div class="form-group">
+                  
+                  
+                                   <label>Name:</label>
+                                    
+                                   <input type="hidden"  name="id" value="{{row.id}}">
+                                   <input type="text" class="form-control" name="title" value="{{row.title}}">
+                  
+                  
+                                </div>
+                  
+                                
+                  
+                                <div class="form-group">
+                  
+                  
+                                   <label>Text:</label>
+                  
+                                   <textarea class="form-control" name="text" id="exampleFormControlTextarea1" rows="3" >{{row.text}}</textarea>
+                  
+                  
+                                </div>
+
+                                
+                  
+                  
+                                
+                  
+                  
+                                <div class="form-group">
+                  
+                  
+                                   <button class="btn btn-primary" type="submit">Update</button>
+                  
+                  
+                                </div>
+                  
+                  
+                             </form>
+                  
+                  
+                          </div>
+                  
+                  
+                          <div class="modal-footer">
+                  
+                  
+                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  
+                  
+                          </div>
+                  
+                  
+                       </div>
+                  
+                  
+                    </div>
+                  
+                 </div>
+                {% endfor %}
+                </table>  
+                <a type="button"  class="btn btn-success float-right" href="/projects/single" data-toggle="modal" data-target="#mymodal">Add New Employees</a> </h2>      
+            </div>
+        </div>
+    </div> <!-- end col -->
+</div> <!-- end row -->
+
+
+
+
+ <div id="mymodal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+       <div class="modal-content">
+          <div class="modal-header">
+  
+             <h4 class="modal-title">Add Employee</h4>
+          </div>
+          <div class="modal-body">
+  
+             <form action="{{url_for('addarea')}}" method="POST">
+  
+  
+                <div class="form-group">
+  
+                   <label>Name:</label>
+                   <input type="text" class="form-control" name="title" required="1">
+  
+  
+                </div>
+                
+
+               
+  
+                 <div class="form-group">
+  
+  
+                   <label>Text:</label>
+  
+                   <textarea class="form-control" name="text" id="exampleFormControlTextarea1" rows="3"></textarea>
+  
+  
+                </div>
+
+                
+  
+  
+                 
+  
+  
+  
+                <div class="form-group">
+  
+  
+                   <button class="btn btn-primary" type="submit">Add Employee</button>
+  
+  
+                </div>
+  
+  
+             </form>
+  
+  
+          </div>
+  
+  
+          <div class="modal-footer">
+  
+  
+             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  
+  
+          </div>
+  
+  
+       </div>
+  
+  
+    </div>
+  
+  
+ </div>
+
+
+{% endblock content %}
