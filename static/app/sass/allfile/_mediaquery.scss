@@ -1,0 +1,22 @@
+@media (max-width:990px){
+    .navbar{
+        float: none;
+        text-align: left;
+        height: auto;
+
+        ul{
+            float: none;
+
+            li{
+                float: none;
+                text-align: left;
+
+                .nav-icon{
+                    float: none;
+                    padding-left: 0;
+                    display: block;
+                }
+            }
+        }
+    }
+}

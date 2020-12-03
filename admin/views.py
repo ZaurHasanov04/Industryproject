@@ -11,7 +11,7 @@ ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
-@app.route('/')
+@app.route('/adminpanel')
 def adminIndex():
     return render_template('/admin/index.html',title='Dashboard')
 
@@ -38,7 +38,7 @@ def addicons():
         mydata=Icon(title, text)
         db.session.add(mydata)
         db.session.commit()
-        return redirect(url_for('icon'))
+        return redirect(url_for('icons'))
 
 
 @app.route('/icons/update', methods=['GET', 'POST'])
@@ -48,14 +48,14 @@ def updateicons():
         mydata.title=request.form['icontitle']
         mydata.text=request.form['icontext']
         db.session.commit()
-        return redirect(url_for('icon'))
+        return redirect(url_for('icons'))
 
 @app.route('/icon/delete/<id>/', methods=['GET', 'POST'])
 def deleteicons(id):
     mydata=Icon.query.get(id)
     db.session.delete(mydata)
     db.session.commit()
-    return redirect(url_for('icon'))
+    return redirect(url_for('icons'))
 
 #The end of functionality of Icon 
 
@@ -125,7 +125,7 @@ def addproject():
             return redirect(url_for('project_single'))
         if allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            file.save(os.path.join('static', app.config['UPLOAD_FOLDER'], filename))
+            file.save(os.path.join('static/admin', app.config['UPLOAD_FOLDER'], filename))
             photo= os.path.join(app.config['UPLOAD_FOLDER'], filename)
         else:
             flash('Fayl secilmedi')
@@ -194,7 +194,7 @@ def updatearea():
         db.session.commit()
         return redirect(url_for('area'))
 
-@app.route('/area/delete/<id>/', methods=['GET', 'POST'])
+@app.route('/areas/delete/<int:id>', methods=['GET', 'POST'])
 def deletearea(id):
     mydata=Area.query.get(id)
     db.session.delete(mydata)

@@ -1,0 +1,50 @@
+.banner-section{
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)), url(../img/header-bg.jpg) no-repeat;
+    background-size: cover;
+    height: 100vh;
+    margin-bottom: 138px;
+
+    .banner-text{
+        position: absolute;
+        top: 49%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        z-index: 5;
+        width: 45%;
+        padding: 40px 0;
+        text-align: center;
+        color: #fff;
+        font-weight: bold;
+
+        h1{
+            font-size: 48px;
+            color: white;
+            font-weight: 700;
+            font-family: $fontmain;
+            line-height: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        p{
+            font-family: $fontmain;
+            font-weight: 300;
+            font-size: 14px;
+            color: white;
+            line-height: 1.625em;
+        }
+
+        a{
+            display: inline-block;
+            padding: 15px 50px;
+            font-size: 14px;
+            text-decoration: none;
+            color: #fff;
+            border: 1px solid;}
+            font-weight: 500;
+            font-family: $fontmain;
+            
+            a:hover{
+                background-color: #fab700;
+            }
+      }
+}

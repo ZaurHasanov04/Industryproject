@@ -1,0 +1,105 @@
+.blog{
+    margin-bottom: 120px;
+}
+
+.container{
+    width: 100%;
+    margin: 0px auto;
+    padding: 0px 15px;    
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1140px;
+}
+
+
+
+.single-post{
+    padding: 0 30px;
+    margin-bottom: 30px;
+}
+
+.single-img{
+    max-width: 100%;
+    height: auto;
+}
+
+.tags{
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.tags li a{
+    text-decoration: none;
+}
+
+.single-post h1{
+    @include mainheader;
+    margin-bottom: 20px;
+}
+
+.widget{
+    border:  1px solid #eee;
+    padding: 40px 30px;
+    margin-bottom: 30px;
+}
+
+.post-search{
+    border: 1px solid #eee;
+}
+
+.post-search::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.post-search input[type=text]{
+    padding: 12px;
+    font-size: 14px;
+    border: none;
+    float: left;
+    width: 80%;
+    background: #eee;
+}
+
+.post-search button{
+    float: left;
+    width: 20%;
+    padding: 10px;
+    color: white;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+.post-search i{
+    color: #fab700;
+}
+
+.widget-title{
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    line-height: 1.2em !important;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.widget-link{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    @include maintext;
+}
+
+.widget ul li{
+    padding: 10px 20px;
+    border-bottom: 1px solid #eee;
+}

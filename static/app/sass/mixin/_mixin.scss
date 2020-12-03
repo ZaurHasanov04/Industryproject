@@ -1,0 +1,26 @@
+@mixin mainheader {
+        font-size: 36px;
+        font-family: $fontmain;
+        color: #222222;
+        font-weight: 600;
+        line-height: 1.2em;
+        text-align: left;
+}
+
+
+@mixin maintext {
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 1.625em;
+        font-family: $fontmain;
+        color: #777777;
+}
+
+@mixin generalheader {
+        font-size: 36px;
+        font-family: $fontmain;
+        color: #222222;
+        font-weight: 600;
+        line-height: 1.2em;
+        text-align: center
+}

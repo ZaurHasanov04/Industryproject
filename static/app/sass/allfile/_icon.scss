@@ -1,0 +1,81 @@
+.icon{
+    width: 100%;
+    
+    .icon-inner{
+        width: 1041px;
+        display: flex;
+        justify-content: space-between;
+        margin: 137px auto;
+
+        .icon-main{
+            width: 33.3333%;
+            margin-left: -68px;
+            margin-right: -68px;
+            }
+
+            h4{
+                font-size: 14px;
+                margin-top: 56px;
+                margin-bottom: 20px;
+                
+                font-family: $fontmain;
+                font-weight: 600;
+                line-height: 1.2em;
+                text-align: center;
+              }
+
+            p{
+                @include maintext;
+                max-width: 280px;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
+
+
+    .hexagon {
+        position: relative;
+        width: 65px; 
+        height: 37.53px;
+        background-color: none;
+        margin: 18.76px 137px;
+        border-left: solid 1px #a7a7a7;
+        border-right: solid 1px #a7a7a7;
+
+        i{
+          font-size: 28px;
+          line-height: 1;
+          margin-top: 5px;
+          color: #a7a7a7;
+          position: relative;
+          left: 25%;
+          }
+      }
+      
+      .hexagon:before,
+      .hexagon:after {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        width: 45.96px;
+        height: 45.96px;
+        -webkit-transform: scaleY(0.5774) scaleX(0.9777) rotate(-45deg);
+        -ms-transform: scaleY(0.5774) scaleX(0.9777) rotate(-45deg);
+        transform: scaleY(0.5774) scaleX(0.9777) rotate(-45deg);
+        background-color: inherit;
+        left: 7.9987px;
+      }
+      
+      .hexagon:before {
+        top: -22.9810px;
+        border-top: solid 1px #a7a7a7;
+        border-right: solid 1px #a7a7a7;
+      }
+      
+      .hexagon:after {
+        bottom: -22.9810px;
+        border-bottom: solid 1px #a7a7a7;
+        border-left: solid 1px #a7a7a7;
+      }

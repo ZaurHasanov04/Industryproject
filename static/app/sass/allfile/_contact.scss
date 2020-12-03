@@ -1,0 +1,114 @@
+/* MAIN CONTACT START */
+
+.main{
+    background-color: #f9f9ff;
+    height: 1104px;
+  }
+  
+  
+  iframe{
+    margin-top: 120px;
+  }
+  
+  
+  .contact{
+    width: 100%;
+    margin-bottom: 135px;
+  }
+  
+  .contact-main{
+    display: flex;
+    margin: 0px auto;
+    width: 1394px;
+    padding-left: 30px;
+  }
+  
+  .address{
+    margin: 125px 120px;
+    width: 33.333%;
+    
+  }
+  
+  .contact-address{
+    display: flex;
+    margin-bottom: 30px;
+    
+  }
+  
+  .contact-address-main p{
+    font-size: 14px;
+    color: #777777;
+    font-weight: 300;
+  }
+  
+  .contact-address-main h5{
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: 300;
+  }
+  
+  .icon-size{
+    margin-right: 30px;
+    font-size: 30px;
+    font-weight: 300;
+    color: #fab700;
+    margin-top: 10px;
+  }
+  
+  .address-general{
+    margin-left: -23px;
+    display: flex;
+  }
+  
+  
+  .address-input{
+    margin-top: 125px;
+    width: 33.33%;
+    
+    
+  }
+  
+  .address-input input{
+    width: 351px;
+    height: 50px;
+    margin-bottom: 20px;
+    padding: 0 10px;
+    border: 1px solid #ced4da;
+  }
+  
+  .address-message{
+    margin-top: 125px;
+    max-width: 42%;
+    margin-left: 101px;
+  }
+  
+  .address-message textarea{
+    width: 352px;
+    height: 193px;
+    padding: 0 10px;
+    border: 1px solid #ced4da;
+  }
+  
+  .address-message button{
+    background-color: #fab700;
+    color: white;
+    width:145px;
+    margin-top: 25px;
+    border-radius: 20px;
+    border: none ;
+    float: right;
+    margin-right: 18px;
+    font-weight: 500;
+    font-size: .8em;
+    line-height: 40px;
+    height: 40px;
+  }
+  
+  
+  .address-message button:hover{
+    background-color: white;
+    color: #fab700;
+    border: 1px solid ;
+  }
+  
+  /* MAIN CONTACT END */
