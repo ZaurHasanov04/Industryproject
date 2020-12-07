@@ -40,25 +40,7 @@ class RegisterForm(FlaskForm):
 
 
 
-# class UpdateAccountForm(FlaskForm):
-#     email=StringField("Elektron poçtunuzu yazın", validators=[validators.Email(message="Xahiş edirik mail ünvanınızı doğru yazın")])
-#     phone=StringField("Nömrənizi yazın",validators=[validators.DataRequired(message="Telefon nömrənizi yazın"), validators.Length(min=7, max=16)])
-#     password=PasswordField("Şifrənizi yazın:", validators=[validators.DataRequired(message="Xahiş edirik şifrənizi yazın"), validators.Length(min=8, max=80, message="Sifre sayi 8 den boyuk olmalidi")])
-#     repassword=PasswordField("Şifrənizi yazın:",  validators=[validators.Length(min=8, max=80, message="Sifre sayi 8 den boyuk olmalidi"),validators.EqualTo(fieldname="confirm", message="Şifrəniz uyğun gəlmir")])
-#     confirm=PasswordField("Şifrənizi təsdiq edin")
-#     def validate_phone(self, phone):
-#             if phone.data != current_user.phone:
-#                 user = User.query.filter_by(username=username.data).first()
 
-#                 if user:
-#                     raise ValidationError('Daxil etdiyiniz nömrə artıq istifadə olunub. Zəhmət olmasa, fərqli nömrə daxil edin.')
-
-#     def validate_email(self, email):
-#         if email.data != current_user.email:
-#             user = User.query.filter_by(email=email.data).first()
-
-#             if user:
-#                 raise ValidationError('Daxil etdiyiniz Email artıq istifadə olunub. Zəhmət olmasa, fərqli Email daxil edin.')
 
 
 class UpdateAccountForm(FlaskForm):
