@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/app/css/main.css" >
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+    {% block pagegrid%}{% endblock pagegrid%}
+    <title>Document</title>
+</head>
+<body>
+    <!--Navbar start-->
+    <nav>
+        <div class="navbar">
+            <a href="#" class="logo"><img src="img/logo.png" alt=""></a>
+            <ul>
+                <li><a class="nav-icon"><i class="fas fa-bars"></i></a></li>
+                <li><a href="{{url_for('appIndex')}}">Ana səhifə</a></li>
+                <li><a href="{{url_for('appabout')}}">Haqqımızda</a></li>
+                <li><a href="{{url_for('appprojects')}}">Layihələr</a></li>
+                <li><a href="{{url_for('appcontact')}}">Əlaqə</a></li>
+                {% if current_user.is_authenticated %}
+                <li><a href="{{url_for('appservis')}}">Servis</a></li>
+                <li><a href="{{url_for('account')}}">Hesabim</a></li>
+                <li><a href="{{url_for('applogout')}}">Logout</a></li>
+                {% else%}
+                <li><a href="{{url_for('applogin')}}">Login</a></li>
+                <li><a href="{{url_for('appregister')}}">Register</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    <!--Navbar end-->
+    
+    <!--Banner start-->
+    <section class="banner">
+        <div class="banner-text">
+            <h1>We’re Industrial solution </h1>
+            <p>Sənayənin proqramlaşdırılması</p><br>
+            <a href="{{url_for('appcontact')}}" type="button" class="btn btn-outline-danger btn-sm"><span>CONTACT</span></a>
+        </div>
+    </section>
+    <!--Banner end-->
+
+    {% block pageinner %}
+    {% endblock pageinner%}
+
+
+     <!--Footer Start-->
+     <footer class="footer">
+         <div class="footer-main">
+             
+                    <div class="footer-about">
+                        <div class="footer-head"><h6>About us</h6></div>
+                        <div class="footer-text"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.</p></div>
+                    </div>
+                    <div class="footer-newsletter">
+                        <div class="footer-head"><h6>Newsletter</h6></div>
+                        <div class="footer-text"><p>Stay update with our latest</p></div>
+                        <div class="footer-form">
+                            <input type="email" placeholder="Yenilikləri bizdən öyrənin">
+                            <button>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                
+            <div class="footer-follow">
+                <div class="footer-head"><h6>Follow Us</h6></div>
+                <div class="footer-text"><p>Let us be social</p></div>
+                <div class="footer-social">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </div>
+         </div>
+     </footer>
+    
+     <!--Footer End-->
+{% block pagescript%}{% endblock pagescript%}
+</body>
+</html>

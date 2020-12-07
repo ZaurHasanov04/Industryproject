@@ -1,217 +1,90 @@
-{% extends 'admin/base.html' %}
+{% extends '/app/layout.html' %}
 
-{% block content %}
-
-    <div class="row">
-        <div class="col md-12">
- 
-            <div class="jumbotron p-3">
- 
-                <h2>Manage <b>Employees </b>  <button type="button"  class="btn btn-success float-right"
-                data-toggle="modal" data-target="#mymodal">Add New Employees</button> </h2>
- 
- 
-                <table class="table table-hover table-dark">
- 
-                    <tr>
- 
-                        <th>ID</th>
-                        <th>Basliq</th>
-                        <th>Metn</th>
-                        
-                        <th>Action</th>
- 
-                    </tr>
- 
-                    {% for row in allabout %}
-                   
-                    <tr>
-                        <td>{{row.id}}</td>
-                        <td>{{row.title}}</td>
-                        
-                        <td>{{row.text}}</td>
- 
-                        <td>
-                            <a href="/about/update/{{row.id}}" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit{{row.id}}">Edit</a>
-                            <a href="/about/delete/{{row.id}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Delete</a>
- 
- 
-                        </td>
- 
-                    </tr>
- 
- 
-                  <!-- Modal Edit Employee-->
-<div id="modaledit{{row.id}}" class="modal fade" role="dialog">
-   <div class="modal-dialog">
- 
- 
-      <div class="modal-content">
- 
- 
-         <div class="modal-header">
- 
- 
-            <h4 class="modal-title">Update Information</h4>
- 
- 
-         </div>
- 
- 
-         <div class="modal-body">
- 
- 
-            <form action="{{url_for('updatedabout')}}" method="POST">
- 
- 
-               <div class="form-group">
- 
- 
-                  <label>Name:</label>
-                   
-                  <input type="hidden"  name="id" value="{{row.id}}">
-                  <input type="text" class="form-control" name="abouttitle" value="{{row.title}}">
- 
- 
-               </div>
- 
- 
- 
-               <div class="form-group">
- 
- 
-                  <label>Text:</label>
- 
-                  <textarea class="form-control" name="abouttext" id="exampleFormControlTextarea1" rows="3" >{{row.text}}</textarea>
- 
- 
-               </div>
- 
- 
-               
- 
- 
-               <div class="form-group">
- 
- 
-                  <button class="btn btn-primary" type="submit">Update</button>
- 
- 
-               </div>
- 
- 
-            </form>
- 
- 
-         </div>
- 
- 
-         <div class="modal-footer">
- 
- 
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
- 
- 
-         </div>
- 
- 
-      </div>
- 
- 
-   </div>
- 
-</div>
- 
- 
-                    
- 
-               {% endfor %}
-                </table>
- 
- 
+{% block pageinner%}
+    <!--Icon start-->
+    <div class="icon">
+        <div class="icon-inner">
+            {% for row in allicons %}
+            <div class="icon-main">
+                <div class="hexagon"><i class="fas fa-magic"></i></div>
+                <h4>{{row.title}}</h4>
+                <p>{{row.text}}</p>
             </div>
- 
- 
- 
-                  <!-- Modal Add Employee-->
- 
- 
-<div id="mymodal" class="modal fade" role="dialog">
-   <div class="modal-dialog">
-      <div class="modal-content">
-         <div class="modal-header">
- 
-            <h4 class="modal-title">Add Employee</h4>
-         </div>
-         <div class="modal-body">
- 
-            <form action="{{url_for('addabout')}}" method="POST">
- 
- 
-               <div class="form-group">
- 
-                  <label>Name:</label>
-                  <input type="text" class="form-control" name="abouttitle" required="1">
- 
- 
-               </div>
- 
- 
-                <div class="form-group">
- 
- 
-                  <label>Text:</label>
- 
-                  <textarea class="form-control" name="abouttext" id="exampleFormControlTextarea1" rows="3"></textarea>
- 
- 
-               </div>
- 
- 
-                
- 
- 
- 
-               <div class="form-group">
- 
- 
-                  <button class="btn btn-primary" type="submit">Add Employee</button>
- 
- 
-               </div>
- 
- 
-            </form>
- 
- 
-         </div>
- 
- 
-         <div class="modal-footer">
- 
- 
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
- 
- 
-         </div>
- 
- 
-      </div>
- 
- 
-   </div>
- 
- 
-</div>
- 
- 
- 
- 
- 
+            {% endfor %}
         </div>
- 
     </div>
- 
- 
+    <!--Icon end-->
 
-{% endblock content %}
+
+    <!--Order Start-->
+        <div class="order">
+            <div class="order-inner">
+                <div class="order-main">
+                    {% for row in alldatas%}
+                    <h1>{{row.title}}</h1>
+                    <p>{{row.text}}</p>
+                    <a href="#" type="button"><p id="metn">Sifaris et</p></a>
+                    {% endfor%}
+                </div>
+                <div class="order-main2">
+                    <form action="#" class="order-request">
+                        <h4>Onlayn müraciət</h4>
+                        <input type="text" placeholder="Mövzular">
+                        <input type="text" placeholder="Ad soyad">
+                        <input type="text" placeholder="+994(00)0000000">
+                        <input type="email" placeholder="Elektron poctuvuz">
+                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                        <button href="#" type="button">Göndər</button>
+                    </form>
+                </div>
+            </div>   
+        </div>
+        <!--Order end-->
+    
+    <!--Servis Start
+    <div class="servis">
+        <h1>Our Capturing Market Sectors</h1>
+        <div class="servis-main">
+            <div class="servis-inner1">
+                <img src="img/s1.jpg" alt="">
+                <h4>Automotive</h4>
+                <p>inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct women face higher conduct. </p>
+            </div>
+            <div class="servis-inner1">
+                <img src="img/s2.jpg" alt="">
+                <h4>Elektronika</h4>
+                <p>inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct women face higher conduct. </p>
+            </div>
+            <div class="servis-inner1">
+                <img src="img/s3.jpg" alt="">
+                <h4>Mexanika</h4>
+                <p>inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct women face higher conduct. </p>
+            </div>
+        </div>
+    </div>
+    Servis End-->
+
+
+    <!--Projects Start-->
+    <div class="project">
+        <div class="project-head"><h1>Projects</h1></div>
+        <div class="project-img">
+            <div class="project-img1">
+                <img src="../../static/app/img/p1.jpg" alt="">
+            </div>
+            <div class="project-img2">
+                <img src="../../static/app/img/p2.jpg" alt="">
+            </div>             
+        </div>
+        <div class="project-img-second">
+            <div class="project-img3">
+                <img src="../../static/app/img/p3.jpg" alt="">
+            </div>
+            <div class="project-img4">
+                <img src="../../static/app/img/p4.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    <!--Projects End-->
+
+{% endblock pageinner%}

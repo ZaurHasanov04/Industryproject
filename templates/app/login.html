@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>{{title}}</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="../../static/app/login/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../../static/app/login/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../../static/app/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../../static/app/login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../../static/app/login/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="../../static/app/login/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../../static/app/login/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../../static/app/login/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="../../static/app/login/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../../static/app/css/util.css">
+	<link rel="stylesheet" type="text/css" href="../../static/app/css/login.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">	
+			<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
+				<form class="login100-form validate-form flex-sb flex-w" method="POST">
+					<span class="login100-form-title p-b-32" >
+						Account Login
+					</span>
+					<span class="txt1 p-b-11">
+						Email
+					</span>
+					{{ form.hidden_tag() }}
+					<div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
+                                {% if form.email.errors%}
+                                {{form.email (class = "input100")}}
+                                <div class="invalid-feedback">
+                                    {% for error in form.email.errors %}
+                                    <span>{{error}}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{form.email (class = "input100")}}
+                                {% endif %}
+					</div>
+					
+					<span class="txt1 p-b-11">
+						Password
+					</span>
+					<div class="wrap-input100 validate-input m-b-12" data-validate = "Password is required">
+						<span class="btn-show-pass">
+							<i class="fa fa-eye"></i>
+						</span>
+						
+                                {% if form.password.errors%}
+                                {{form.password (class = "input100")}}
+                                <div class="invalid-feedback">
+                                    {% for error in form.password.errors %}
+                                    <span>{{error}}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{form.password (class = "input100")}}
+                                {% endif %}
+					</div>
+					
+					<div class="flex-sb-m w-full p-b-48">
+						<div class="contact100-form-checkbox">
+							<div class="form-check" style="display: flex;">
+								{{ form.remember(class="form-checkbox100") }}
+                                {{form.remember.label( style="font-size:12px; margin:-1px 3px")}}
+							</div>
+							
+								
+							
+						</div>
+
+						<div>
+							<a href="#" class="txt3">
+								Forgot Password?
+							</a>
+						</div>
+					</div>
+
+					<div class="container-login100-form-btn">
+						{{ form.submit(class="login100-form-btn") }}
+					</div>
+
+					<div class="myalert" style="margin: 10px 0px;">
+						{% with messages = get_flashed_messages(with_categories=true) %}
+							{% if messages %}
+								{% for category, message in messages %}
+									<div class="alert alert-{{ category }}" style="border-radius: 5px;">
+									{{ message }}
+									</div>
+								{% endfor %}
+							{% endif %}
+						{% endwith %}
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="../../static/app/login/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../../static/app/login/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../../static/app/login/vendor/bootstrap/js/popper.js"></script>
+	<script src="../../static/app/login/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../../static/app/login/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../../static/app/login/vendor/daterangepicker/moment.min.js"></script>
+	<script src="../../static/app/login/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="../../static/app/login/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="../../static/app/login/js/main.js"></script>
+
+</body>
+</html>

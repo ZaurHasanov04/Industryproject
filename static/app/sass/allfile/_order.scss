@@ -33,7 +33,7 @@
                 text-align: left;
             }
             
-            a{
+            button{
                 border: 1px solid;
                 background-color: #fab700;
                 display: block;
@@ -57,7 +57,7 @@
               
             }
             
-            a:hover{
+            button:hover{
                 background-color: transparent;
                 color: #fab700;
                 border-color: #fab700;
@@ -86,8 +86,8 @@
                     input{
                         height: 40px;
                         margin-bottom: 5px;
-                        width: 100%;
-                        background: transparent;
+                        width: 94%;
+                        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../img/form-bg.jpg);
                         color: white;
                         border: 1px solid;
                         padding: 0px 10px;
@@ -97,19 +97,19 @@
                         height: 40px;
                         margin-bottom: 5px;
                         width: 100%;
-                        background: transparent;
+                        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../img/form-bg.jpg);
                         color: white;
                         border: 1px solid;
                       }
 
                       textarea{
-                        width: 100%;
+                        width: 98%;
                         height: 128px;
-                        background: transparent;
+                        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)), url(../img/header-bg.jpg) no-repeat;
                         color: white;
                         border: 1px solid;
                       }
-                      a{
+                      button{
                         height: 36px;
                         width: 100%;
                         border: 1px solid;

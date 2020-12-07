@@ -1,6 +1,6 @@
 from app import app
 from app import db
-from admin import Icon, About, Project, Area
+from app.models import Icon, About, Project, Area, Servis
 from flask import render_template,redirect,request,url_for, flash
 import os
 from werkzeug.utils import secure_filename
@@ -206,7 +206,10 @@ def deletearea(id):
 
 @app.route('/servis')
 def servis():
-    return render_template('admin/servis.html')
+    alldata=Servis.query.all()
+    return render_template('admin/servis.html', myservis=alldata)
+
+
 
 #the end of functionality of servis
 

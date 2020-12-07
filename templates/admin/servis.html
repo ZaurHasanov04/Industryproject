@@ -2,66 +2,72 @@
 
 {% block content %}
 <div class="container-fluid">
-                    <!-- Page-Title -->
-                    <div class="row">
-                        <div class="col-sm-12">
-                            
-                        </div><!--end col-->
-                    </div>
-                    <!-- end page title end breadcrumb -->
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-body">
+    <!-- Page-Title -->
+    <div class="row">
+        <div class="col-sm-12">
+            
+        </div><!--end col-->
+    </div>
+    <!-- end page title end breadcrumb -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
 
-                                    <h4 class="mt-0 header-title">Default Datatable</h4>
-                                    <p class="text-muted mb-3">DataTables has most features enabled by
-                                        default, so all you need to do to use it with your own tables is to call
-                                        the construction function: <code>$().DataTable();</code>.
-                                    </p>
+                    <h4 class="mt-0 header-title">Default Datatable</h4>
+                    <p class="text-muted mb-3">DataTables has most features enabled by
+                        default, so all you need to do to use it with your own tables is to call
+                        the construction function: <code>$().DataTable();</code>.
+                    </p>
 
-                                    <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                                        <thead>
-                                        <tr>
-                                            <th>id</th>
-                                            <th>Movzu</th>
-                                            <th>Ad</th>
-                                            <th>Soyad</th>
-                                            <th>Email</th>
-                                            <th>Telefon nomresi</th>
-                                            <th>Olke</th>
-                                            <th>Seher</th>
-                                        </tr>
-                                        </thead>
-
-
-                                        <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
-
-                                        </tbody>
-                                    </table>
-
-                                </div>
-                            </div>
-                        </div> <!-- end col -->
-                    </div> <!-- end row -->
+                    <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                        <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>Movzu</th>
+                            <th>Ad</th>
+                            <th>Soyad</th>
+                            <th>Email</th>
+                            <th>Telefon nomresi</th>
+                            <th>Olke</th>
+                            <th>Seher</th>
+                            <th>Kuce</th>
+                            <th>Text</th>
+                        </tr>
+                        </thead>
 
 
+                        <tbody>
+                            {% for row in myservis %}
+                        <tr>
+                            <td>{{row.id}}</td>
+                            <td>{{row.subject}}</td>
+                            <td>{{row.name}}</td>
+                            <td>{{row.surname}}</td>
+                            <td>{{row.email}}</td>
+                            <td>{{row.phone}}</td>
+                            <td>{{row.country}}</td>
+                            <td>{{row.city}}</td>
+                            <td>{{row.street}}</td>
+                            <td>{{row.text}}</td>
+                        </tr>
+                            {% endfor %}
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div> <!-- end col -->
+    </div> <!-- end row -->
 
 
 
-                    <!-- end row -->
+
+
+    <!-- end row -->
 
 
 
-                </div><!-- container -->
+</div><!-- container -->
 {% endblock content %}

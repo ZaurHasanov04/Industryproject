@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{title}}</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="../../static/app/register/fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="../../static/app/register/vendor/jquery-ui/jquery-ui.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="../../static/app/css/regstyle.css">
+</head>
+<body>
+
+    <div class="main">
+
+        <section class="signup">
+            <!-- <img src="images/signup-bg.jpg" alt=""> -->
+            <div class="container">
+                <div class="signup-content">
+                    
+                    <form method="POST"  id="signup-form" class="signup-form">
+                        {{ form.hidden_tag() }}
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first_name">First name</label>
+                                {% if form.name.errors%}
+                                {{form.name (class = "form-input")}}
+                                <div class="invalid-feedback">
+                                    {% for error in form.name.errors %}
+                                    <span>{{error}}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{form.name (class = "form-input")}}
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label for="last_name">Last name</label>
+                                {% if form.surname.errors%}
+                                {{form.surname (class = "form-input")}}
+                                <div class="invalid-feedback">
+                                    {% for error in form.surname.errors %}
+                                    <span>{{error}}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{form.surname (class = "form-input")}}
+                                {% endif %}
+                            </div>
+                        </div>
+                        
+                            <div class="form-group">
+                                <label for="company_name">Company</label>
+                                {% if form.company.errors%}
+                                {{form.company (class = "form-input")}}
+                                <div class="invalid-feedback">
+                                    {% for error in form.company.errors %}
+                                    <span>{{error}}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{form.company (class = "form-input")}}
+                                {% endif %}
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email_name">Email</label>
+                                {% if form.email.errors%}
+                                {{form.email (class = "form-input")}}
+                                <div class="invalid-feedback">
+                                    {% for error in form.email.errors %}
+                                    <span>{{error}}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{form.email (class = "form-input")}}
+                                {% endif %}
+                            </div>
+                        
+                        <div class="form-group">
+                            <label for="phone_number">Phone number</label>
+                            {% if form.phone.errors%}
+                                {{form.phone (class = "form-input")}}
+                                <div class="invalid-feedback">
+                                    {% for error in form.phone.errors %}
+                                    <span>{{error}}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{form.phone (class = "form-input")}}
+                                {% endif %}
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                {% if form.password.errors%}
+                                {{form.password (class = "form-input")}}
+                                <div class="invalid-feedback">
+                                    {% for error in form.password.errors %}
+                                    <span>{{error}}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{form.password (class = "form-input")}}
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label for="re_password">Repeat your password</label>
+                                {% if form.confirm.errors%}
+                                {{form.confirm (class = "form-input")}}
+                                <div class="invalid-feedback">
+                                    {% for error in form.confirm.errors %}
+                                    <span>{{error}}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{form.confirm(class = "form-input")}}
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="Submit"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <script src="../../static/app/register/vendor/jquery/jquery.min.js"></script>
+    <script src="../../static/app/register/vendor/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../static/app/register/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="../../static/app/register/vendor/jquery-validation/dist/additional-methods.min.js"></script>
+    <script src="../../static/app/register/js/registermain.js"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

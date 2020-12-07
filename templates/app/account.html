@@ -1,0 +1,98 @@
+{% extends 'app/layout.html' %}
+
+{% block pagegrid %}
+<link rel="stylesheet" href="../../static/app/account/css/bootstrap.css" >
+{% endblock pagegrid%}
+
+{% block pageinner%}
+    <div class="container">
+      <div class="myalert" style="margin: 10px 0px;">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }}" style="border-radius: 5px;">
+              {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+      </div>
+        <div class="row" >
+            <div class="col-md-6 mb-4" >
+                <form method="POST">
+                  {{ form.hidden_tag() }}
+                    <div class="form-group">
+                      <label for="name">Ad:</label>
+                      {% if form.name.errors%}
+                                {{form.name (class = "form-control")}}
+                                <div class="invalid-feedback">
+                                    {% for error in name.errors %}
+                                    <span>{{error}}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{form.name (class = "form-control")}}
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                      <label for="surname">Soyad:</label>
+                      {% if form.surname.errors%}
+                                {{form.surname (class = "form-control")}}
+                                <div class="invalid-feedback">
+                                    {% for error in surname.errors %}
+                                    <span>{{error}}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{form.surname (class = "form-control")}}
+                                {% endif %}
+                    </div>
+                    <div class="form-group">
+                      <label for="company">İş yeriniz:</label>
+                                {% if form.company.errors%}
+                                {{form.company (class = "form-control")}}
+                                <div class="invalid-feedback">
+                                    {% for error in company.errors %}
+                                    <span>{{error}}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{form.company (class = "form-control")}}
+                                {% endif %}
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">E-mail ünvanınız:</label>
+                                {% if form.email.errors%}
+                                {{form.email (class = "form-control")}}
+                                <div class="invalid-feedback">
+                                    {% for error in email.errors %}
+                                    <span>{{error}}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{form.email (class = "form-control")}}
+                                {% endif %}
+                      </div>
+                      <div class="form-group">
+                        <label for="phone">Əlaqə nömrəniz:</label>
+                                {% if form.phone.errors%}
+                                {{form.phone (class = "form-control")}}
+                                <div class="invalid-feedback">
+                                    {% for error in phone.errors %}
+                                    <span>{{error}}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{form.phone (class = "form-control")}}
+                                {% endif %}
+                      </div>
+                  
+                    <button type="submit" class="btn btn-warning text-white">Submit</button>
+                  </form>
+            </div>
+        </div>
+    </div>
+   
+
+{% endblock pageinner%}
+     

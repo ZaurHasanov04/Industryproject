@@ -1,67 +1,63 @@
-{% extends 'admin/base.html' %}
+{% extends '/app/layout.html' %}
 
-{% block content %}
-<div class="container-fluid">
-                    <!-- Page-Title -->
-                    <div class="row">
-                        <div class="col-sm-12">
-                            
-                        </div><!--end col-->
-                    </div>
-                    <!-- end page title end breadcrumb -->
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-body">
+{% block pageinner%}
 
-                                    <h4 class="mt-0 header-title">Default Datatable</h4>
-                                    <p class="text-muted mb-3">DataTables has most features enabled by
-                                        default, so all you need to do to use it with your own tables is to call
-                                        the construction function: <code>$().DataTable();</code>.
-                                    </p>
-
-                                    <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                                        <thead>
-                                        <tr>
-                                            <th>id</th>
-                                            <th>Movzu</th>
-                                            <th>Ad</th>
-                                            <th>Soyad</th>
-                                            <th>Email</th>
-                                            <th>Telefon nomresi</th>
-                                            <th>Olke</th>
-                                            <th>Seher</th>
-                                        </tr>
-                                        </thead>
+    <!--Icon start-->
+    <div class="icon">
+        <div class="icon-inner">
+            <div class="icon-main">
+                <div class="hexagon"><i class="fas fa-magic"></i></div>
+                <h4>Elektronika</h4>
+                <p>inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace. That’s why. </p>
+            </div>
+            <div class="icon-main">
+                <div class="hexagon"><i class="fas fa-magic"></i></div>
+                <h4>Avtomatlasdirma</h4>
+                <p>inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace. That’s why. </p>
+            </div>
+            <div class="icon-main">
+                <div class="hexagon"><i class="fas fa-magic"></i></div>
+                <h4>Mexanika</h4>
+                <p>inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace. That’s why. </p>
+            </div>
+        </div>
+    </div>
+    <!--Icon end-->
 
 
-                                        <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
+    
+    
+    
+    <!-- Order start-->
 
-                                        </tbody>
-                                    </table>
+    <div class="order">
+        <div class="order-inner">
+            <div class="order-main">
+                <h1>We’ve made a life <br> that will change you </h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incnamenameunt ut labore et dolore magna aliqua. Ut enim ad minim. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temp or incnamenameunt ut labore et dolore magna aliqua. Ut enim ad minim. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incnamenameunt ut labore et dolore magna aliqua. Ut enim ad minim. </p>
+                
+            </div>
+            <div class="order-main2">
+                <form action="{{url_for('addappservis')}}" method="POST" class="order-request">
+                    <h4>Sifaris et</h4>
+                    <input name="subject" type="text" placeholder="Movzu: Elektronika,Avtomatika,Mexanika">
+                    <input name="name" type="text" placeholder="Ad">
+                    <input name="surname" type="text" placeholder="Soyad">
+                    <input name="email" type="email" placeholder="Elektron poctuvuz">
+                    <input name="phone" type="text" placeholder="+994(00)0000000">
+                    <input name="country" type="text" placeholder="Olke">
+                    <input name="city" type="text" placeholder="Seher">
+                    <input name="street" type="text" placeholder="Street">
+                    <textarea name="text" cols="30" rows="10"></textarea>
+                    <button type="submit">Sifaris et</button>
+                </form>
+            </div>
+        </div>   
+    </div>
 
-                                </div>
-                            </div>
-                        </div> <!-- end col -->
-                    </div> <!-- end row -->
+    <!-- Order end-->
+
+{% endblock pageinner%}
+     
 
 
-
-
-
-                    <!-- end row -->
-
-
-
-                </div><!-- container -->
-{% endblock content %}
