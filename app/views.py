@@ -11,24 +11,27 @@ from flask_mail import Message
 
 EMAIL_USER = os.environ.get('EMAIL_USER')
 EMAIL_PASS = os.environ.get('EMAIL_PASS')
-
+#Index html
 @app.route('/')
 def appIndex():
     alldata=Icon.query.all()
     allarea=Area.query.all()
     return render_template('app/index.html', allicons=alldata, alldatas=allarea)
 
+#about
 @app.route('/industry/about')
 def appabout():
     alldata=Icon.query.all()
     allabout=About.query.all()
     return render_template('app/about.html', allicons=alldata, alldatas=allabout)
 
+#projects
 @app.route('/industry/projects')
 def appprojects():
     alldata=Project.query.all()
     return render_template('app/projects.html', allprojects=alldata)
 
+#servis
 @app.route('/industry/servis')
 @login_required
 def appservis():
@@ -36,6 +39,7 @@ def appservis():
     all=About.query.all()
     return render_template('app/servis.html', allicons=alldata, about=all)
 
+#add servis
 @app.route('/industry/servis/add', methods=['POST'])
 def addappservis():
     if request.method == 'POST':
@@ -54,10 +58,11 @@ def addappservis():
         return redirect(url_for('appservis'))
 
 
+#Contact
 @app.route('/industry/contact')
 def appcontact():
     return render_template('app/contact.html')
-
+#Add contact
 @app.route('/contact/add', methods=['POST'])
 def addcontact():
     if request.method == 'POST':
@@ -70,7 +75,7 @@ def addcontact():
         db.session.commit()
         return redirect(url_for('appIndex'))
 
-
+#Account updated
 @app.route("/hesabım", methods=['GET', 'POST'])
 @login_required
 def account():
@@ -93,7 +98,7 @@ def account():
     
     return render_template('app/account.html', title='Hesabım', form=form)
 
-
+#Register
 @app.route('/industry/register', methods=['GET', 'POST'])
 def appregister():
     if current_user.is_authenticated:
@@ -109,7 +114,7 @@ def appregister():
     return render_template('app/register.html', title="Qeydiyyat Forumu", form = form)
     
 
-
+#Login
 @app.route('/industry/login', methods=['GET', 'POST'])
 def applogin():
     if current_user.is_authenticated:
@@ -125,7 +130,7 @@ def applogin():
             flash('Giriş uğursuz oldu, zəhmət olmasa mail və şifrənizi yoxlayın', 'danger')
     return render_template('app/login.html', title='Login', form=form)
 
-
+#logout
 @app.route('/logout')
 @login_required
 def applogout():
@@ -134,7 +139,7 @@ def applogout():
 
 
 
-# Reset Password
+# Reset of Pass
 
 def send_reset_email(user):
     token = user.get_reset_token()
@@ -169,8 +174,8 @@ def reset_token(token):
         return redirect(url_for('reset_request'))
     form = ResetPasswordForm()
     if form.validate_on_submit():
-        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user.password = hashed_password
+        hashed_pw = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        user.password = hashed_pw
         db.session.commit()
         flash('Şifrəniz yeniləndi! İndi hesabınıza daxil ola bilərsiniz.', 'success')
         return redirect(url_for('applogin'))

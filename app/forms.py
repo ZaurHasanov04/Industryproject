@@ -8,7 +8,7 @@ from flask_login import current_user
 
 class LoginForm(FlaskForm):
     email = StringField('email', validators=[InputRequired(), validators.Email(message="Xahiş edirik mailinizi düzgün yazın")])
-    password = PasswordField('password', validators=[InputRequired(), Length(min=8, max=80)])
+    password = PasswordField('Şifrə', validators=[InputRequired(), Length(min=8, max=80)])
     remember = BooleanField('Xatırla məni')
     submit = SubmitField('Hesabınıza daxil olun', render_kw={"style": "width:100%;"})
 
@@ -58,7 +58,7 @@ class UpdateAccountForm(FlaskForm):
             user = User.query.filter_by(phone=phone.data).first()
 
             if user:
-                raise ValidationError('Daxil etdiyiniz nömrə artıq istifadə olunub. Zəhmət olmasa, nömrə daxil edin.')
+                raise ValidationError('Daxil etdiyiniz nömrə artıq istifadə olunub. Zəhmət olmasa, yeni nömrə daxil edin.')
 
     def validate_email(self, email):
         if email.data != current_user.email:
@@ -83,4 +83,4 @@ class RequestResetForm(FlaskForm):
 class ResetPasswordForm(FlaskForm):
     password = PasswordField('Şifrə', validators=[DataRequired()])
     confirm = PasswordField('Təsdiq Şifrəsi', validators=[DataRequired(), EqualTo('password')])
-    submit = SubmitField('Şifrənzii Yeniləyin')
+    submit = SubmitField('Şifrənzi Yeniləyin')
