@@ -25,8 +25,10 @@
     <div class="order">
         <div class="order-inner">
             <div class="order-main">
-                <h1>We’ve made a life <br> that will change you </h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incnamenameunt ut labore et dolore magna aliqua. Ut enim ad minim. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temp or incnamenameunt ut labore et dolore magna aliqua. Ut enim ad minim. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incnamenameunt ut labore et dolore magna aliqua. Ut enim ad minim. </p>
+                {% for row in about %}
+                <h1>{{row.title}}</h1>
+                <p>{{row.text}}</p>
+                {% endfor%}
                 
             </div>
             <div class="order-main2">

@@ -4,7 +4,7 @@ import secrets
 from flask import render_template,redirect,request,url_for,session,logging, flash
 from app import app, db, mail,bcrypt
 from app.forms import RegisterForm, LoginForm, UpdateAccountForm, RequestResetForm, ResetPasswordForm
-from app.models import Icon, About, Project, Area, Servis, User
+from app.models import Icon, About, Project, Area, Servis, User, Contact
 from flask_login import login_user, current_user, logout_user, login_required
 from flask_mail import Message
 
@@ -33,7 +33,8 @@ def appprojects():
 @login_required
 def appservis():
     alldata=Icon.query.all()
-    return render_template('app/servis.html', allicons=alldata)
+    all=About.query.all()
+    return render_template('app/servis.html', allicons=alldata, about=all)
 
 @app.route('/industry/servis/add', methods=['POST'])
 def addappservis():
@@ -60,15 +61,14 @@ def appcontact():
 @app.route('/contact/add', methods=['POST'])
 def addcontact():
     if request.method == 'POST':
-        subject=request.form['subject']
-        namesurname=request.form['name']
+        namesurname=request.form['namesurname']
         email=request.form['email']
         subject=request.form['subject']
         text=request.form['text']
-        mydata=Servis(subject, namesurname,  email,  subject, text)
+        mydata=Contact(namesurname, email,  subject, text)
         db.session.add(mydata)
         db.session.commit()
-        return redirect(url_for('appİndex'))
+        return redirect(url_for('appIndex'))
 
 
 @app.route("/hesabım", methods=['GET', 'POST'])

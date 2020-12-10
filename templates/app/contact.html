@@ -33,7 +33,7 @@
                     </div>
                 </div>
                 <div class="address-general">
-                    <form action="{{url_for('addcontact')}}" style="display: flex;">
+                    <form action="{{url_for('addcontact')}}" method="POST" style="display: flex;">
                     <div class="address-input">
                         <input type="text" name="namesurname" placeholder="Adiniz">
                         <input type="text" name="email" placeholder="Mailiniz">
@@ -41,7 +41,7 @@
                     </div>
                     <div class="address-message">
                         <textarea name="text" id="" cols="30" rows="10" placeholder="Mesajiniz"></textarea>
-                        <button>Göndər</button>
+                        <button type="submit" >Göndər</button>
                     </div>
                     </form>
                 </div>

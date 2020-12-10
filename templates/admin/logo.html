@@ -1,6 +1,6 @@
 {% extends 'admin/base.html' %}
 
-{%block pagetitle%}<h4 class="page-title">Haqqımızda</h4> {% endblock pagetitle %}
+{%block pagetitle%}<h4 class="page-title">Layihələr</h4> {% endblock pagetitle %}
 
 {% block content %}
 
@@ -9,116 +9,104 @@
         <div class="card">
             <div class="card-body">
 
-                <h4 class="mt-0 header-title">Haqqımızda səhifəsinin idarə edilməsi</h4>
+                <h4 class="mt-0 header-title">Layihələr bölməsi</h4>
                 
 
                 <table id="child_rows" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Başlıq</th>
-                            <th>Mətn</th>
+                            <th>Şəkil</th>
                             <th>Action</th>
                         </tr>
                     </thead>
-                    {% for row in allabout %}
+                    {% for row in alllogo %}
                 <tbody>
                     <tr>
                         <th>{{row.id}}</th>
-                        <th>{{row.title}}</th>
-                        <th>{{row.text}}</th>
-
+                        <th><img style="height: 29px; width:81px" src="/{{row.photoURL}}" alt=""></th>
                         <th>
-                            <a href="/about/update/{{row.id}}" class="btn btn-warning btn-xs" type="button" data-toggle="modal" data-target="#modaledit{{row.id}}">Yenilə</a>
-                            <a href="/about/delete/{{row.id}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Sil</a>
+                            <a href="/logo/update/{{row.id}}" class="btn btn-warning btn-xs" type="button" data-toggle="modal" data-target="#modaledit{{row.id}}">Yenilə</a>
+                            <a href="/logo/delete/{{row.id}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Sil</a>
                         </th>
                     </tr>
                 </tbody>
 
                 <div id="modaledit{{row.id}}" class="modal fade" role="dialog">
                     <div class="modal-dialog">
-
-
+                  
+                  
                        <div class="modal-content">
-
-
+                  
+                  
                           <div class="modal-header">
-
-
-                             <h4 class="modal-title">Məlumatı yeniləmək</h4>
-
-
+                  
+                  
+                             <h4 class="modal-title">Məlumatı yenilə</h4>
+                  
+                  
                           </div>
-
-
+                  
+                  
                           <div class="modal-body">
-
-
-                             <form action="{{url_for('updatedabout')}}" method="POST" enctype="multipart/form-data">
-
-
+                  
+                  
+                             <form action="{{url_for('updatelogo')}}" method="POST" enctype="multipart/form-data">
+                  
+                  
                                 <div class="form-group">
-
-
+                  
+                  
                                    <label>Başlıq:</label>
-
+                                    
                                    <input type="hidden"  name="id" value="{{row.id}}">
-                                   <input type="text" class="form-control" name="abouttitle" value="{{row.title}}">
-
 
                                 </div>
-
-
+                  
+                                
 
                                 <div class="form-group">
-
-
-                                   <label>Mətn:</label>
-
-                                   <textarea class="form-control" name="abouttext" id="exampleFormControlTextarea1" rows="3" >{{row.text}}</textarea>
-
-
+                                    <label for="exampleFormControlFile1">Şəkili yüklə</label>
+                                    <input type="file" name="file" class="form-control-file" id="exampleFormControlFile1">
                                 </div>
-
-
-
-
-
-
-
+                  
+                  
+                                
+                  
+                  
                                 <div class="form-group">
-
-
+                  
+                  
                                    <button class="btn btn-primary" type="submit">Yenilə</button>
-
-
+                  
+                  
                                 </div>
-
-
+                  
+                  
                              </form>
-
-
+                  
+                  
                           </div>
-
-
+                  
+                  
                           <div class="modal-footer">
-
-
+                  
+                  
                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Bağla</button>
-
-
+                  
+                  
                           </div>
-
-
+                  
+                  
                        </div>
-
-
+                  
+                  
                     </div>
-
+                  
                  </div>
                 {% endfor %}
-                </table>
-                <a type="button"  class="btn btn-success float-right" href="#" data-toggle="modal" data-target="#mymodal">Əlavə et</a> </h2>
+                </table>  
+                <a type="button"  class="btn btn-success float-right"  data-toggle="modal" data-target="#mymodal">Yenisin əlavə et</a> </h2>      
             </div>
         </div>
     </div> <!-- end col -->
@@ -131,72 +119,48 @@
     <div class="modal-dialog">
        <div class="modal-content">
           <div class="modal-header">
-
-             <h4 class="modal-title">Əlavə et</h4>
+  
+             <h4 class="modal-title">əlavə et</h4>
           </div>
           <div class="modal-body">
-
-             <form action="{{url_for('addabout')}}" method="POST" enctype="multipart/form-data">
-
-
-                <div class="form-group">
-
-                   <label>Name:</label>
-                   <input type="text" class="form-control" name="abouttitle" required="1">
-
-
-                </div>
-
-
-
-
-                 <div class="form-group">
-
-
-                   <label>Text:</label>
-
-                   <textarea class="form-control" name="abouttext" id="exampleFormControlTextarea1" rows="3"></textarea>
-
-
-                </div>
-
-
-
-
-
-
-
+  
+             <form action="{{url_for('addlogo')}}" method="POST" enctype="multipart/form-data">
 
                 <div class="form-group">
-
-
+                    <label for="exampleFormControlFile1">Şəkili yüklə</label>
+                    <input type="file" name="file" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+  
+                <div class="form-group">
+  
+  
                    <button class="btn btn-primary" type="submit">Əlavə et</button>
-
-
+  
+  
                 </div>
-
-
+  
+  
              </form>
-
-
+  
+  
           </div>
-
-
+  
+  
           <div class="modal-footer">
-
-
-             <button type="button" class="btn btn-secondary" data-dismiss="modal">Bağla</button>
-
-
+  
+  
+             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  
+  
           </div>
-
-
+  
+  
        </div>
-
-
+  
+  
     </div>
-
-
+  
+  
  </div>
 
 {% endblock content %}

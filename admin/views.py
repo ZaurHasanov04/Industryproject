@@ -1,6 +1,6 @@
 from app import app
 from app import db
-from app.models import Icon, About, Project, Area, Servis, User, Contact
+from app.models import Icon, About, Project, Area, Servis, User, Contact, Logo
 from flask import render_template,redirect,request,url_for, flash, abort
 import os
 from werkzeug.utils import secure_filename
@@ -10,7 +10,7 @@ from flask_login import login_user,  login_required, current_user
 UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
+app.config['UPLOAD_PATH_POST'] = 'static/uploads'
 
 @app.route('/adminpanel')
 @login_required
@@ -169,7 +169,7 @@ def addproject():
                 return redirect(url_for('project_single'))
             if allowed_file(file.filename):
                 filename = secure_filename(file.filename)
-                file.save(os.path.join('static/admin', app.config['UPLOAD_FOLDER'], filename))
+                file.save(os.path.join('static', app.config['UPLOAD_FOLDER'], filename))
                 photo= os.path.join(app.config['UPLOAD_FOLDER'], filename)
             else:
                 flash('Fayl secilmedi')
@@ -300,6 +300,79 @@ def contact():
 
 #the end of functionality of servis
 
+@app.route('/logo')
+@login_required
+def logo():
+    if User.query.get(1) == current_user:
+        alldata=Logo.query.all()
+        return render_template('/admin/logo.html', alllogo=alldata)
+    else:
+        abort(403)
+
+@app.route('/logo/add', methods=['POST'])
+@login_required
+def addlogo():
+    if User.query.get(1) == current_user:
+        if request.method == 'POST':
+            
+            file=request.files['file']
+
+            if 'file' not in request.files:
+                flash('No file part')
+                return redirect(url_for('addlogo'))
+            if file.filename == '':
+                flash('No selected file')
+                return redirect(url_for('addlogo'))
+            if allowed_file(file.filename):
+                filename = secure_filename(file.filename)
+                file.save(os.path.join(app.config['UPLOAD_PATH_POST'] , filename))
+                photo= os.path.join(app.config['UPLOAD_PATH_POST'], filename)
+            else:
+                flash('Fayl secilmedi')
+                return redirect(url_for('logo'))
+
+            mydata=Logo(photo)
+            db.session.add(mydata)
+            db.session.commit()
+            return redirect(url_for('logo'))
+    else: 
+        abort(403)        
+
+
+@app.route('/logo/update', methods=['GET', 'POST'])
+@login_required
+def updatelogo():
+    if User.query.get(1) == current_user:
+        if request.method == 'POST':
+            myproject=Logo.query.get(request.form.get('id'))
+
+            file=request.files['file']
+
+            if file.filename != '':
+                if allowed_file(file.filename):
+                    os.remove(os.path.join('static', myproject.photoURL))
+                    filename=secure_filename(file.filename)
+                    file.save(os.path.join(app.config['UPLOAD_PATH_POST'], filename))
+                    myproject.photoURL=os.path.join(app.config['UPLOAD_PATH_POST'], filename)
+                else:
+                    flash('Bu fayl formatini desteklemir')
+                    return redirect(url_for('updatelogo'))
+            
+            db.session.commit()
+            return redirect(url_for('logo'))
+    else:
+        abort(403)   
+
+@app.route('/logo/delete/<id>/', methods=['GET', 'POST'])
+@login_required
+def deletelogo(id):
+    if User.query.get(1) == current_user:
+        mydata=Logo.query.get(id)
+        db.session.delete(mydata)
+        db.session.commit()
+        return redirect(url_for('logo'))
+    else:
+        abort(403)
 
 
 

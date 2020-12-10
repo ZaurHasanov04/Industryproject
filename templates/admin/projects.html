@@ -30,7 +30,7 @@
                         <th>{{row.title}}</th>
                         <th>{{row.category}}</th>
                         <th>{{row.text}}</th>
-                        <th><img style="height: 60px; width:60px" src="../static/admin/{{row.photoURL}}" alt=""></th>
+                        <th><img style="height: 60px; width:60px" src="../../static/{{row.photoURL}}" alt=""></th>
                         <th>
                             <a href="/projects/update/{{row.id}}" class="btn btn-warning btn-xs" type="button" data-toggle="modal" data-target="#modaledit{{row.id}}">Yenilə</a>
                             <a href="/projects/delete/{{row.id}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Sil</a>
@@ -200,7 +200,7 @@
           <div class="modal-footer">
   
   
-             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             <button type="button" class="btn btn-secondary" data-dismiss="modal">Bağla</button>
   
   
           </div>

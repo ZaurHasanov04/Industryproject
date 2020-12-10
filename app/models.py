@@ -105,12 +105,19 @@ class Contact(db.Model):
     email=db.Column(db.String(150), nullable=False)
     subject=db.Column(db.String(255), nullable=False)
     text=db.Column(db.Text(), nullable=False)
-    def __init__(self, name, surname, company, email, subject, text):
-        self.name=name
-        self.surname=surname
+    def __init__(self, namesurname,  email, subject, text):
+        self.namesurname=namesurname
         self.email=email
         self.subject=subject
         self.text=text
+
+
+
+class Logo(db.Model):
+    id=db.Column(db.Integer, primary_key=True)
+    photoURL=db.Column(db.String())
+    def __init__(self,  photoURL):
+        self.photoURL=photoURL
     
 
     
