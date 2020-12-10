@@ -1,217 +1,203 @@
 {% extends 'admin/base.html' %}
 
+{%block pagetitle%}<h4 class="page-title">İkonlar</h4> {% endblock pagetitle %}
+
 {% block content %}
 
-    <div class="row">
-        <div class="col md-12">
- 
-            <div class="jumbotron p-3">
- 
-                <h2>Manage <b>Employees </b>  <button type="button"  class="btn btn-success float-right"
-                data-toggle="modal" data-target="#mymodal">Add New Employees</button> </h2>
- 
- 
-                <table class="table table-hover table-dark">
- 
-                    <tr>
- 
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        
-                        <th>Action</th>
- 
-                    </tr>
- 
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <h4 class="mt-0 header-title">İkonların idarəedilməsi cədvəli</h4>
+                <p class="text-muted mb-3">Yalnız və yalnız sadəcə 3 ədəd ikon əlavə edə bilərsiniz
+                </p>
+
+                <table id="child_rows" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Başlıq</th>
+                            <th>Mətn</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
                     {% for row in allicon %}
-                   
+                <tbody>
                     <tr>
-                        <td>{{row.id}}</td>
-                        <td>{{row.title}}</td>
-                        
-                        <td>{{row.text}}</td>
- 
-                        <td>
-                            <a href="/icon/update/{{row.id}}" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit{{row.id}}">Edit</a>
-                            <a href="/icon/delete/{{row.id}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Delete</a>
- 
- 
-                        </td>
- 
+                        <th>{{row.id}}</th>
+                        <th>{{row.title}}</th>
+                        <th>{{row.text}}</th>
+
+                        <th>
+                            <a href="/icons/update/{{row.id}}" class="btn btn-warning btn-xs" type="button" data-toggle="modal" data-target="#modaledit{{row.id}}">Yenilə</a>
+                            <a href="/icons/delete/{{row.id}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Sil</a>
+                        </th>
                     </tr>
- 
- 
-                  <!-- Modal Edit Employee-->
-<div id="modaledit{{row.id}}" class="modal fade" role="dialog">
-   <div class="modal-dialog">
- 
- 
-      <div class="modal-content">
- 
- 
-         <div class="modal-header">
- 
- 
-            <h4 class="modal-title">Update Information</h4>
- 
- 
-         </div>
- 
- 
-         <div class="modal-body">
- 
- 
-            <form action="{{url_for('updateicons')}}" method="POST">
- 
- 
-               <div class="form-group">
- 
- 
-                  <label>Name:</label>
-                   
-                  <input type="hidden"  name="id" value="{{row.id}}">
-                  <input type="text" class="form-control" name="icontitle" value="{{row.title}}">
- 
- 
-               </div>
- 
- 
- 
-               <div class="form-group">
- 
- 
-                  <label>Text:</label>
- 
-                  <textarea class="form-control" name="icontext" id="exampleFormControlTextarea1" rows="3" >{{row.text}}</textarea>
- 
- 
-               </div>
- 
- 
-               
- 
- 
-               <div class="form-group">
- 
- 
-                  <button class="btn btn-primary" type="submit">Update</button>
- 
- 
-               </div>
- 
- 
-            </form>
- 
- 
-         </div>
- 
- 
-         <div class="modal-footer">
- 
- 
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
- 
- 
-         </div>
- 
- 
-      </div>
- 
- 
-   </div>
- 
-</div>
- 
- 
-                    
- 
-               {% endfor %}
+                </tbody>
+
+                <div id="modaledit{{row.id}}" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+
+                       <div class="modal-content">
+
+
+                          <div class="modal-header">
+
+
+                             <h4 class="modal-title">Məlumatı yeniləmək</h4>
+
+
+                          </div>
+
+
+                          <div class="modal-body">
+
+
+                             <form action="{{url_for('updateicons')}}" method="POST" enctype="multipart/form-data">
+
+
+                                <div class="form-group">
+
+
+                                   <label>Başlıq:</label>
+
+                                   <input type="hidden"  name="id" value="{{row.id}}">
+                                   <input type="text" class="form-control" name="icontitle" value="{{row.title}}">
+
+
+                                </div>
+
+
+
+                                <div class="form-group">
+
+
+                                   <label>Mətn:</label>
+
+                                   <textarea class="form-control" name="icontext" id="exampleFormControlTextarea1" rows="3" >{{row.text}}</textarea>
+
+
+                                </div>
+
+
+
+
+
+
+
+                                <div class="form-group">
+
+
+                                   <button class="btn btn-primary" type="submit">Yenilə</button>
+
+
+                                </div>
+
+
+                             </form>
+
+
+                          </div>
+
+
+                          <div class="modal-footer">
+
+
+                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Bağla</button>
+
+
+                          </div>
+
+
+                       </div>
+
+
+                    </div>
+
+                 </div>
+                {% endfor %}
                 </table>
- 
- 
+                <a type="button"  class="btn btn-success float-right" href="#" data-toggle="modal" data-target="#mymodal">Yenilə</a> </h2>
             </div>
- 
- 
- 
-                  <!-- Modal Add Employee-->
- 
- 
-<div id="mymodal" class="modal fade" role="dialog">
-   <div class="modal-dialog">
-      <div class="modal-content">
-         <div class="modal-header">
- 
-            <h4 class="modal-title">Add Employee</h4>
-         </div>
-         <div class="modal-body">
- 
-            <form action="{{url_for('addicons')}}" method="POST">
- 
- 
-               <div class="form-group">
- 
-                  <label>Name:</label>
-                  <input type="text" class="form-control" name="icontitle" required="1">
- 
- 
-               </div>
- 
- 
-                <div class="form-group">
- 
- 
-                  <label>Text:</label>
- 
-                  <textarea class="form-control" name="icontext" id="exampleFormControlTextarea1" rows="3"></textarea>
- 
- 
-               </div>
- 
- 
-                
- 
- 
- 
-               <div class="form-group">
- 
- 
-                  <button class="btn btn-primary" type="submit">Add Employee</button>
- 
- 
-               </div>
- 
- 
-            </form>
- 
- 
-         </div>
- 
- 
-         <div class="modal-footer">
- 
- 
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
- 
- 
-         </div>
- 
- 
-      </div>
- 
- 
-   </div>
- 
- 
-</div>
- 
- 
- 
- 
- 
         </div>
- 
+    </div> <!-- end col -->
+</div> <!-- end row -->
+
+
+
+
+ <div id="mymodal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+       <div class="modal-content">
+          <div class="modal-header">
+
+             <h4 class="modal-title">Əlavə et</h4>
+          </div>
+          <div class="modal-body">
+
+             <form action="{{url_for('addicons')}}" method="POST" enctype="multipart/form-data">
+
+
+                <div class="form-group">
+
+                   <label>Başlıq:</label>
+                   <input type="text" class="form-control" name="icontitle" required="1">
+
+
+                </div>
+
+
+
+
+                 <div class="form-group">
+
+
+                   <label>Mətn:</label>
+
+                   <textarea class="form-control" name="icontext" id="exampleFormControlTextarea1" rows="3"></textarea>
+
+
+                </div>
+
+
+
+
+
+
+
+
+                <div class="form-group">
+
+
+                   <button class="btn btn-primary" type="submit">Əlavə et</button>
+
+
+                </div>
+
+
+             </form>
+
+
+          </div>
+
+
+          <div class="modal-footer">
+
+
+             <button type="button" class="btn btn-secondary" data-dismiss="modal">Bağla</button>
+
+
+          </div>
+
+
+       </div>
+
+
     </div>
- 
- 
+
+
+ </div>
 
 {% endblock content %}

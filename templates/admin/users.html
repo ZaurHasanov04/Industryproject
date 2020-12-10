@@ -1,5 +1,10 @@
 {% extends 'admin/base.html' %}
 
+
+
+{%block pagetitle%}<h4 class="page-title">İstifadəçilər</h4> {% endblock pagetitle %}
+
+
 {% block content %}
 <div class="container-fluid">
                     <!-- Page-Title -->
@@ -14,34 +19,33 @@
                             <div class="card">
                                 <div class="card-body">
 
-                                    <h4 class="mt-0 header-title">Default Datatable</h4>
-                                    <p class="text-muted mb-3">DataTables has most features enabled by
-                                        default, so all you need to do to use it with your own tables is to call
-                                        the construction function: <code>$().DataTable();</code>.
-                                    </p>
+                                    <h4 class="mt-0 header-title">Müştərilərin siyahısı</h4>
 
                                     <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                         <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>Id</th>
+                                            <th>Ad</th>
+                                            <th>Soyad</th>
+                                            <th>Email</th>
+                                            <th>Telefon nömrəsi</th>
+                                            <th>İş yeri</th>
                                         </tr>
                                         </thead>
 
 
                                         <tbody>
+                                        {% for row in allusers %}
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
+                                            <td>{{row.id}}</td>
+                                            <td>{{row.name}}</td>
+                                            <td>{{row.surname}}</td>
+                                            <td>{{row.email}}</td>
+                                            <td>{{row.phone}}</td>
+                                            <td>{{row.company}}</td>
+
                                         </tr>
+                                            {% endfor %}
 
                                         </tbody>
                                     </table>

@@ -13,35 +13,37 @@
                     <div class="contact-address">
                         <i class="fas fa-home icon-size"></i>
                         <div class="contact-address-main">
-                            <h5>Dhaka, Bangladesh</h5>
-                            <p>56/8, West Panthapath</p>
+                            <h5>Azərbaycan</h5>
+                            <p>Sumqayıt</p>
                         </div>
                     </div>
                     <div class="contact-address">
                         <i class="fas fa-phone icon-size"></i>
                         <div class="contact-address-main">
-                            <h5>00 (880) 9865 562</h5>
-                            <p>Mon to Fri 9am to 6 pm</p>
+                            <h5>(070)560-67-27</h5>
+                            <p>B.e - Cümə 9:00-6:00</p>
                         </div>
                     </div>
                     <div class="contact-address">
                         <i class="far fa-envelope icon-size"></i>
                         <div class="contact-address-main">
-                            <h5>support@codethemes.com</h5>
-                            <p>Send us your query anytime!</p>
+                            <h5>mail@example.com</h5>
+                            <p>Hər an əlaqə saxlaya bilərsən</p>
                         </div>
                     </div>
                 </div>
                 <div class="address-general">
+                    <form action="{{url_for('addcontact')}}" style="display: flex;">
                     <div class="address-input">
-                        <input type="text" placeholder="Adiniz">
-                        <input type="text" placeholder="Mailiniz">
-                        <input type="text" placeholder="Movzu">
+                        <input type="text" name="namesurname" placeholder="Adiniz">
+                        <input type="text" name="email" placeholder="Mailiniz">
+                        <input type="text" name="subject" placeholder="Movzu">
                     </div>
                     <div class="address-message">
-                        <textarea name="" id="" cols="30" rows="10" placeholder="Mesajiniz"></textarea>
-                        <button>Gonder</button>
+                        <textarea name="text" id="" cols="30" rows="10" placeholder="Mesajiniz"></textarea>
+                        <button>Göndər</button>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>

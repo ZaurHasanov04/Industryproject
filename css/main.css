@@ -377,8 +377,8 @@ nav .navbar ul li a {
 .order .order-inner .order-main2 .order-request input {
   height: 40px;
   margin-bottom: 5px;
-  width: 93%;
-  background: transparent;
+  width: 94%;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../img/form-bg.jpg);
   color: white;
   border: 1px solid;
   padding: 0px 10px;
@@ -388,7 +388,7 @@ nav .navbar ul li a {
   height: 40px;
   margin-bottom: 5px;
   width: 100%;
-  background: transparent;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../img/form-bg.jpg);
   color: white;
   border: 1px solid;
 }
@@ -396,7 +396,7 @@ nav .navbar ul li a {
 .order .order-inner .order-main2 .order-request textarea {
   width: 98%;
   height: 128px;
-  background: transparent;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)), url(../img/header-bg.jpg) no-repeat;
   color: white;
   border: 1px solid;
 }
@@ -610,7 +610,7 @@ nav .navbar ul li a {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)), url(../img/header-bg.jpg) no-repeat;
   background-size: cover;
   height: 100vh;
-  margin-bottom: 146px;
+  margin-bottom: 0px;
 }
 
 .banner .banner-text {
@@ -813,7 +813,7 @@ iframe {
   border: 1px solid;
 }
 
-
+/* MAIN CONTACT END */
 .blog {
   margin-bottom: 120px;
 }

@@ -5,21 +5,13 @@
     <!--Icon start-->
     <div class="icon">
         <div class="icon-inner">
+            {% for row in allicons %}
             <div class="icon-main">
                 <div class="hexagon"><i class="fas fa-magic"></i></div>
-                <h4>Elektronika</h4>
-                <p>inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace. That’s why. </p>
+                <h4>{{row.title}}</h4>
+                <p>{{row.text}}</p>
             </div>
-            <div class="icon-main">
-                <div class="hexagon"><i class="fas fa-magic"></i></div>
-                <h4>Avtomatlasdirma</h4>
-                <p>inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace. That’s why. </p>
-            </div>
-            <div class="icon-main">
-                <div class="hexagon"><i class="fas fa-magic"></i></div>
-                <h4>Mexanika</h4>
-                <p>inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace. That’s why. </p>
-            </div>
+            {% endfor %}
         </div>
     </div>
     <!--Icon end-->
@@ -40,16 +32,16 @@
             <div class="order-main2">
                 <form action="{{url_for('addappservis')}}" method="POST" class="order-request">
                     <h4>Sifaris et</h4>
-                    <input name="subject" type="text" placeholder="Movzu: Elektronika,Avtomatika,Mexanika">
+                    <input name="subject" type="text" placeholder="Mövzu: Elektronika,Avtomatika,Mexanika">
                     <input name="name" type="text" placeholder="Ad">
                     <input name="surname" type="text" placeholder="Soyad">
-                    <input name="email" type="email" placeholder="Elektron poctuvuz">
+                    <input name="email" type="email" placeholder="Elektron poçtuvuz">
                     <input name="phone" type="text" placeholder="+994(00)0000000">
-                    <input name="country" type="text" placeholder="Olke">
-                    <input name="city" type="text" placeholder="Seher">
-                    <input name="street" type="text" placeholder="Street">
-                    <textarea name="text" cols="30" rows="10"></textarea>
-                    <button type="submit">Sifaris et</button>
+                    <input name="country" type="text" placeholder="Ölkə">
+                    <input name="city" type="text" placeholder="Şəhər">
+                    <input name="street" type="text" placeholder="Küçə">
+                    <textarea name="text" cols="30" rows="10" placeholder="Mesajınız və ya ətraflı izah"></textarea>
+                    <button type="submit">Sifariş et</button>
                 </form>
             </div>
         </div>   

@@ -1,5 +1,5 @@
 {% extends 'admin/base.html' %}
-
+{%block pagetitle%}<h4 class="page-title">Fəaliyyət sahələri</h4> {% endblock pagetitle %}
 
 {% block content %}
 
@@ -8,12 +8,8 @@
         <div class="card">
             <div class="card-body">
 
-                <h4 class="mt-0 header-title">Child rows example</h4>
-                <p class="text-muted mb-3">The DataTables API has a number of methods for attaching 
-                    child rows to a parent row in the DataTable. This can be used to show additional 
-                    information about a row, useful for cases where you wish to convey more information 
-                    about a row than there is space for in the host table.
-                </p>
+                <h4 class="mt-0 header-title">Fəaliyyət sahələri</h4>
+                
 
                 <table id="child_rows" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                     <thead>
@@ -31,8 +27,8 @@
                         <th>{{row.title}}</th>
                         <th>{{row.text}}</th>
                         <th>
-                            <a href="/area/update/{{row.id}}" class="btn btn-warning btn-xs" type="button" data-toggle="modal" data-target="#modaledit{{row.id}}">Edit</a>
-                            <a href="/areas/delete/{{row.id}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Delete</a>
+                            <a href="/area/update/{{row.id}}" class="btn btn-warning btn-xs" type="button" data-toggle="modal" data-target="#modaledit{{row.id}}">Yenilə</a>
+                            <a href="/areas/delete/{{row.id}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Sil</a>
                         </th>
                     </tr>
                 </tbody>
@@ -47,7 +43,7 @@
                           <div class="modal-header">
                   
                   
-                             <h4 class="modal-title">Update Information</h4>
+                             <h4 class="modal-title">Məlumatı yenilə</h4>
                   
                   
                           </div>
@@ -62,7 +58,7 @@
                                 <div class="form-group">
                   
                   
-                                   <label>Name:</label>
+                                   <label>Başlıq:</label>
                                     
                                    <input type="hidden"  name="id" value="{{row.id}}">
                                    <input type="text" class="form-control" name="title" value="{{row.title}}">
@@ -75,7 +71,7 @@
                                 <div class="form-group">
                   
                   
-                                   <label>Text:</label>
+                                   <label>Mətn:</label>
                   
                                    <textarea class="form-control" name="text" id="exampleFormControlTextarea1" rows="3" >{{row.text}}</textarea>
                   
@@ -91,7 +87,7 @@
                                 <div class="form-group">
                   
                   
-                                   <button class="btn btn-primary" type="submit">Update</button>
+                                   <button class="btn btn-primary" type="submit">Yenilə</button>
                   
                   
                                 </div>
@@ -106,7 +102,7 @@
                           <div class="modal-footer">
                   
                   
-                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Bağla</button>
                   
                   
                           </div>
@@ -120,7 +116,7 @@
                  </div>
                 {% endfor %}
                 </table>  
-                <a type="button"  class="btn btn-success float-right" href="/projects/single" data-toggle="modal" data-target="#mymodal">Add New Employees</a> </h2>      
+                <a type="button"  class="btn btn-success float-right" href="/projects/single" data-toggle="modal" data-target="#mymodal">Yenisin əlavə et</a> </h2>      
             </div>
         </div>
     </div> <!-- end col -->
@@ -134,7 +130,7 @@
        <div class="modal-content">
           <div class="modal-header">
   
-             <h4 class="modal-title">Add Employee</h4>
+             <h4 class="modal-title">Əlavə et</h4>
           </div>
           <div class="modal-body">
   
@@ -143,7 +139,7 @@
   
                 <div class="form-group">
   
-                   <label>Name:</label>
+                   <label>Başlıq:</label>
                    <input type="text" class="form-control" name="title" required="1">
   
   
@@ -155,7 +151,7 @@
                  <div class="form-group">
   
   
-                   <label>Text:</label>
+                   <label>Mətn:</label>
   
                    <textarea class="form-control" name="text" id="exampleFormControlTextarea1" rows="3"></textarea>
   
@@ -172,7 +168,7 @@
                 <div class="form-group">
   
   
-                   <button class="btn btn-primary" type="submit">Add Employee</button>
+                   <button class="btn btn-primary" type="submit">Əlavə et</button>
   
   
                 </div>
@@ -187,7 +183,7 @@
           <div class="modal-footer">
   
   
-             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             <button type="button" class="btn btn-secondary" data-dismiss="modal">Bağla</button>
   
   
           </div>
